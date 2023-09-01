@@ -38,6 +38,27 @@ yargs.command({
     }
 })
 
+// Edit command added
+yargs.command({
+    command: 'edit',
+    describe: 'Update an Existing Todo',
+    builder: {
+        title: {
+            describe: 'Todo Title',
+            demandOption: true,
+            type: 'string',
+        },
+        desc: {
+            describe: 'Todo Description',
+            demandOption: true,
+            type: 'string',
+        },
+    },
+    handler(argv) {
+        todos.edit(argv.title, argv.desc);
+    }
+})
+
 // Remove command added
 yargs.command({
     command: 'remove',

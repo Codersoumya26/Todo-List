@@ -32,6 +32,27 @@ const showTodo = (title) => {
     }
 }
 
+// Update Todo
+const EditTodo = (title, desc) => {
+    const todos = loadTodos()
+    const indexToUpdate = todos.findIndex(todo => todo.title === title);
+
+    if (indexToUpdate !== -1) {
+        todos.splice(indexToUpdate, 1)
+        console.log(todos)
+        todos.push({
+            title: title,
+            desc: desc
+        })
+        saveTodos(todos)
+        console.log(desc)
+        console.log(todos)
+        console.log(chalk.blue(title + ' Todo description Updated.'))
+    } else {
+        console.log(chalk.red('No Todo Found.'))
+    }
+}
+
 // Delete Todo
 const removeTodo = (title) => {
     const todos = loadTodos()
@@ -65,6 +86,7 @@ const loadTodos = () => {
 module.exports = {
     add: addTodo,
     show: showTodo,
+    edit: EditTodo,
     remove: removeTodo,
     todoList: loadTodos
 }

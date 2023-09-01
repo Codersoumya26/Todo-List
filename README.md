@@ -20,6 +20,11 @@ node app.js show --title='First Todo
 ```
 
 * 3. Update a TODO from The List.
+
+```bash
+node app.js edit --title='Test' --desc="Updated desc"
+```
+
 * 4. Remove a Todo from The List.
 
 ```bash
