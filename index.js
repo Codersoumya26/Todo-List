@@ -12,7 +12,7 @@ const addTodo = (title, desc) => {
         })
 
         saveTodos(todos)
-        console.log(chalk.blue('New todos added'))
+        console.log(chalk.blue('New Todo added'))
     } else {
         console.log(chalk.red('Todo Title already Exist.'))
     }
@@ -27,6 +27,18 @@ const showTodo = (title) => {
         console.log(todo)
     } else {
         console.log(chalk.red('No Todo Found.'))
+    }
+}
+
+const removeTodo = (title) => {
+    const todos = loadTodos()
+    const otherTodos = todos.filter((todo) => todo.title !== title)
+
+    if (todos.length > otherTodos.length) {
+        saveTodos(otherTodos)
+        console.log(chalk.red(title + ' todo deleted from list'))
+    } else {
+        console.log(chalk.red('No Todo Found for this title ' + title))
     }
 }
 
@@ -50,5 +62,6 @@ const loadTodos = () => {
 module.exports = {
     add: addTodo,
     show: showTodo,
+    remove: removeTodo,
     todoList: loadTodos
 }

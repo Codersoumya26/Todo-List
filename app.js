@@ -25,7 +25,7 @@ yargs.command({
 // get SHOW command
 yargs.command({
     command: 'show',
-    describe: 'Read a new Todo',
+    describe: 'Read an Existing Todo',
     builder: {
         title: {
             describe: 'Todo Title',
@@ -35,6 +35,21 @@ yargs.command({
     },
     handler(argv) {
         todos.show(argv.title);
+    }
+})
+
+yargs.command({
+    command: 'remove',
+    describe: 'Delete an Existing Todo',
+    builder: {
+        title: {
+            describe: 'Todo Title',
+            demandOption: true,
+            type: 'string',
+        },
+    },
+    handler(argv) {
+        todos.remove(argv.title);
     }
 })
 
