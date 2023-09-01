@@ -10,7 +10,7 @@ Here User Can,
 * Run Following Commands
 
 ```bash
-node app.js add --title='First Todo' 
+node app.js add --title='First Todo' --desc="Test Todo description"
 ```
 
 

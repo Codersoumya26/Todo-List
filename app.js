@@ -11,9 +11,14 @@ yargs.command({
             demandOption: true,
             type: 'string',
         },
+        desc: {
+            describe: 'Todo Description',
+            demandOption: true,
+            type: 'string',
+        },
     },
     handler(argv) {
-        console.log('Todo Title:- ', argv.title);
+        todos.add(argv.title, argv.desc);
     }
 })
 
