@@ -1,6 +1,7 @@
 const fs = require('fs');
 const chalk = require('chalk');
 
+// Create Todo 
 const addTodo = (title, desc) => {
     const todos = loadTodos()
     const duplicateTodo = todos.find((todo) => todo.title === title)
@@ -18,6 +19,7 @@ const addTodo = (title, desc) => {
     }
 }
 
+// Read Todo
 const showTodo = (title) => {
     const todos = loadTodos()
     const todo = todos.find((todo) => todo.title === title)
@@ -30,6 +32,7 @@ const showTodo = (title) => {
     }
 }
 
+// Delete Todo
 const removeTodo = (title) => {
     const todos = loadTodos()
     const otherTodos = todos.filter((todo) => todo.title !== title)

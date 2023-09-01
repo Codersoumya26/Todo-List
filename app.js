@@ -38,6 +38,7 @@ yargs.command({
     }
 })
 
+// Remove command added
 yargs.command({
     command: 'remove',
     describe: 'Delete an Existing Todo',
