@@ -1,5 +1,5 @@
 const yargs = require('yargs')
-const todos = require('./todoList.js')
+const todos = require('./index.js')
 
 // yargs.version('3.3.3')
 
