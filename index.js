@@ -14,7 +14,19 @@ const addTodo = (title, desc) => {
         saveTodos(todos)
         console.log(chalk.blue('New todos added'))
     } else {
-        console.log(chalk.red('Todo Title already Exist'))
+        console.log(chalk.red('Todo Title already Exist.'))
+    }
+}
+
+const showTodo = (title) => {
+    const todos = loadTodos()
+    const todo = todos.find((todo) => todo.title === title)
+
+    if (todo) {
+        console.log(chalk.blue('Your Todo :-'))
+        console.log(todo)
+    } else {
+        console.log(chalk.red('No Todo Found.'))
     }
 }
 
@@ -37,5 +49,6 @@ const loadTodos = () => {
 
 module.exports = {
     add: addTodo,
+    show: showTodo,
     todoList: loadTodos
 }
