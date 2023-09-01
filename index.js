@@ -39,15 +39,27 @@ const EditTodo = (title, desc) => {
 
     if (indexToUpdate !== -1) {
         todos.splice(indexToUpdate, 1)
-        console.log(todos)
         todos.push({
             title: title,
             desc: desc
         })
         saveTodos(todos)
-        console.log(desc)
-        console.log(todos)
         console.log(chalk.blue(title + ' Todo description Updated.'))
+    } else {
+        console.log(chalk.red('No Todo Found.'))
+    }
+}
+
+
+// Show All Todo
+const todoList = () => {
+    const todos = loadTodos()
+    
+    if(todos.length > 0) {
+        todos.forEach(todo => {
+            console.log(todo)
+        })
+        
     } else {
         console.log(chalk.red('No Todo Found.'))
     }
@@ -88,5 +100,5 @@ module.exports = {
     show: showTodo,
     edit: EditTodo,
     remove: removeTodo,
-    todoList: loadTodos
+    list: todoList
 }

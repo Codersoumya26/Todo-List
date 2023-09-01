@@ -59,6 +59,16 @@ yargs.command({
     }
 })
 
+// List command added
+yargs.command({
+    command: 'list',
+    describe: 'Show all Existing Todos from list',
+    handler() {
+        console.log('Showing Whole Todo-List :-')
+        todos.list();
+    }
+})
+
 // Remove command added
 yargs.command({
     command: 'remove',
