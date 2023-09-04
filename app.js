@@ -1,5 +1,88 @@
 const yargs = require('yargs')
+const todos = require('./index.js')
 
-yargs.version('3.3.3')
+// create ADD command
+yargs.command({
+    command: 'add',
+    describe: 'Create a new Todo',
+    builder: {
+        title: {
+            describe: 'Todo Title',
+            demandOption: true,
+            type: 'string',
+        },
+        desc: {
+            describe: 'Todo Description',
+            demandOption: true,
+            type: 'string',
+        },
+    },
+    handler(argv) {
+        todos.add(argv.title, argv.desc);
+    }
+})
 
-// yargs.parse()
+// get SHOW command
+yargs.command({
+    command: 'show',
+    describe: 'Read an Existing Todo',
+    builder: {
+        title: {
+            describe: 'Todo Title',
+            demandOption: true,
+            type: 'string',
+        },
+    },
+    handler(argv) {
+        todos.show(argv.title);
+    }
+})
+
+// Edit command added
+yargs.command({
+    command: 'edit',
+    describe: 'Update an Existing Todo',
+    builder: {
+        title: {
+            describe: 'Todo Title',
+            demandOption: true,
+            type: 'string',
+        },
+        desc: {
+            describe: 'Todo Description',
+            demandOption: true,
+            type: 'string',
+        },
+    },
+    handler(argv) {
+        todos.edit(argv.title, argv.desc);
+    }
+})
+
+// List command added
+yargs.command({
+    command: 'list',
+    describe: 'Show all Existing Todos from list',
+    handler() {
+        console.log('Showing Whole Todo-List :-')
+        todos.list();
+    }
+})
+
+// Remove command added
+yargs.command({
+    command: 'remove',
+    describe: 'Delete an Existing Todo',
+    builder: {
+        title: {
+            describe: 'Todo Title',
+            demandOption: true,
+            type: 'string',
+        },
+    },
+    handler(argv) {
+        todos.remove(argv.title);
+    }
+})
+
+yargs.parse()
